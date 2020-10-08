@@ -1,4 +1,9 @@
+import skimage
+from skimage import filters
 import matplotlib.pyplot as plt
 
-plt.plot([x**2 for x in range(-10, 11)])
+img = skimage.data.chelsea()
+img = skimage.color.rgb2gray(img)
+flt = filters.prewitt(img)
+plt.imshow(flt, cmap='gray')
 plt.show()
